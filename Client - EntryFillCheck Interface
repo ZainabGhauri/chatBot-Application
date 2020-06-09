@@ -1,0 +1,31 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package chatbotcodeforclient;
+
+/**
+ *
+ * @author Zainab Ghauri
+ */
+
+//AN OOP CONCEPT IS BEING USED HERE THAT IS INTERFACES!
+//IT IS ONE OF THE MAJOR OOP CONCEPT
+//USED FOR THE DATA ENCAPSULATION!
+//BY THIS WE CAN ACHEIVE 100% DATA HIDING!
+
+
+
+//AN INTERFACE # 3 
+//INTERFACE IS BASICALLY USED FOR 100% DATA PROTECTION
+//THE METHOD INSIDE INTERFACE IS ABSTARCT BY DEFALULT
+
+public interface EntryFillCheck {
+ 
+    //THIS METHOD IS FOR SIGNUP SCREEN OF TH CLIENT
+    //CONTAINS MAIN STEPS FOR THE ENTRY CHECK EITHER THE FIELDS ARE FILLED OR NOT !
+    
+    void starter();    
+    
+}
