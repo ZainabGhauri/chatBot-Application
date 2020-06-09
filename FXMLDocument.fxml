@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="438.0" prefWidth="612.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatbot.FXMLDocumentController">
+   <children>
+      <ImageView fitHeight="548.0" fitWidth="734.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@chatstyle.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="172.0" layoutY="132.0" prefHeight="107.0" prefWidth="441.0" text="Welcome To ChatBot !" textFill="#5358a1" underline="true">
+         <font>
+            <Font name="Bodoni MT Condensed" size="67.0" />
+         </font>
+      </Label>
+      <ProgressBar disable="true" layoutX="187.0" layoutY="239.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="56.0" prefWidth="326.0" />
+      <Button fx:id="btnproceed" layoutX="456.0" layoutY="316.0" mnemonicParsing="false" onAction="#Start" onMouseClicked="#Start" text="Proceed" textFill="#172372" underline="true">
+         <font>
+            <Font name="Bell MT Italic" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="165.0" layoutY="441.0" prefHeight="107.0" prefWidth="441.0" text=" AYESHA|TALHA|ZAINAB" textFill="#9294b5" underline="true">
+         <font>
+            <Font name="Microsoft JhengHei UI Light" size="37.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
