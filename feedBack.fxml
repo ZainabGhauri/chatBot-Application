@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="337.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatbot.FXMLDocumentController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="374.0" prefWidth="670.0">
+         <children>
+            <ImageView fitHeight="407.0" fitWidth="680.0" layoutX="-5.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@FEEDXZZ.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="114.0" layoutY="67.0" prefHeight="24.0" prefWidth="120.0" text="Server's Name :" textFill="#382d80">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="btnnameofserver" layoutX="261.0" layoutY="64.0">
+               <font>
+                  <Font name="Bell MT" size="10.0" />
+               </font>
+            </TextField>
+            <CheckBox fx:id="w1" layoutX="115.0" layoutY="98.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="470.0" text="Host Connection is Stable ?" textFill="#2f137c">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="w2" layoutX="115.0" layoutY="129.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="470.0" text="Are Messages Delievered on Time ?" textFill="#0b2779">
+               <font>
+                  <Font name="System Bold Italic" size="17.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="w3" layoutX="115.0" layoutY="159.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="470.0" text="Is this a User-Friendly App?" textFill="#0b1372">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </CheckBox>
+            <Label layoutX="78.0" layoutY="192.0" prefHeight="24.0" prefWidth="265.0" text="Rate Our App on (1-10) *1 is lowest* :" textFill="#222672" />
+            <TextField fx:id="btnComment" layoutX="343.0" layoutY="194.0" prefHeight="21.0" prefWidth="136.0">
+               <font>
+                  <Font name="Bell MT Bold" size="11.0" />
+               </font>
+            </TextField>
+            <Label layoutX="99.0" layoutY="225.0" prefHeight="21.0" prefWidth="201.0" text="Any Comments/Suggestion :" textFill="#1a1972" />
+            <TextArea layoutX="189.0" layoutY="253.0" prefHeight="59.0" prefWidth="322.0" />
+            <Button fx:id="btnsibmitButton" layoutX="460.0" layoutY="321.0" mnemonicParsing="false" onAction="#endScene" onMouseClicked="#endScene" prefHeight="32.0" prefWidth="103.0" text="Submit *" textFill="#6a0fe1" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
