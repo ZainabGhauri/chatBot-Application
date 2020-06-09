@@ -1,0 +1,938 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package chatbotcodeforclient;
+
+
+
+//LIBRARIES WE ARE USING FOR OUR PROJECTS
+//STREAMS LIBRARY
+//JAVAFXLIBRARY
+//OPTIONPANE LIBRARY
+//SCENE LIBRARY
+//JAVA.UTIL.* LIBRARIES AND SO ON....
+
+import java.awt.HeadlessException;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.URL;
+import java.net.UnknownHostException;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Zainab Ghauri
+ */
+
+
+
+
+
+//OOP CONCEPTS ARE USED HERE !!
+//!.INHERITANCE
+//2.MULTIPLE INHERITANCE
+//OOP DOESN'T ALLOWS US MULTIPLE INHERITANCE SO IT CAN BE DONE USING INTERFCES USING IMPLEMENTS KEYWORD!!
+//IT ALSO INHERITS ABSTRACT CLASS USING " EXTENDS " KEYWORD !!
+
+
+public class FXMLDocumentController extends Connection implements Initializable , LoadingStage , Loginclient , EntryFillCheck , quitScreen {
+    
+    
+    
+    //FXML CONTROLS 
+    //THESE NAMES ARE SAME AS IT IS USED IN SCENE BUILDER FX ID
+    
+    @FXML private TextField btnusername;
+    @FXML private PasswordField btnpassword;
+    @FXML private Button btncancel;
+    @FXML private Button btnsibmitButton;
+    @FXML private Button btncancelsign; 
+    @FXML private Button btnregister;
+    @FXML private Button btnlogin;
+    @FXML private Label  labelsignup;
+   // @FXML private Button btnyes;
+    @FXML private Button btnno;
+    @FXML private Button btnhhhh;
+    @FXML private TextField firstname;
+    @FXML private TextField lastname;
+    @FXML private TextField signemail;
+    @FXML private TextField username;
+    @FXML private PasswordField passwordsign;
+    @FXML private  Button sentbutton;
+    @FXML private ListView servermessage;
+    @FXML private ListView clientmessage;
+    @FXML private TextField txtClientMessage;
+    @FXML private Button btnClientMessage;
+    @FXML private Button btngetmessage;
+    @FXML private Button btnleft;
+    @FXML Button btnaccept;    
+   // @FXML Label labelfeedback;
+    private String  ClientMessage ="";
+
+          
+//DEFAULT CONSTRUCTOR
+    public FXMLDocumentController() {
+    }
+    
+    
+     //GETTER!!
+     //GETTER AND SETTER METHODS
+     //GETTER AND SETTER METHOD IS FOR DATA PROTECTION AND CREATED SPECIALLY FOR PRIVATE FIELDS AND DATA VARIABLE
+     //THIS REMAIN ACCESSABLE TILL IT IS IN THE SAME CLASS
+     //IF IT IS NEEDED TO BE USED IN ANOTHER CLASS , IT CAN BE ACCESSED THROUGH CONSTRUCTORS AND GETTER METHODS!
+     
+    public TextField getBtnusername() {
+        return btnusername;
+    }
+
+    public PasswordField getBtnpassword() {
+        return btnpassword;
+    }
+
+    public Button getBtncancel() {
+        return btncancel;
+    }
+
+    public Button getBtnsibmitButton() {
+        return btnsibmitButton;
+    }
+
+    public Button getBtncancelsign() {
+        return btncancelsign;
+    }
+
+    public Button getBtnregister() {
+        return btnregister;
+    }
+
+    public Button getBtnlogin() {
+        return btnlogin;
+    }
+
+    public Label getLabelsignup() {
+        return labelsignup;
+    }
+
+    public Button getBtnno() {
+        return btnno;
+    }
+
+    public Button getBtnhhhh() {
+        return btnhhhh;
+    }
+
+    public TextField getFirstname() {
+        return firstname;
+    }
+
+    public TextField getLastname() {
+        return lastname;
+    }
+
+    public TextField getSignemail() {
+        return signemail;
+    }
+
+    public TextField getUsername() {
+        return username;
+    }
+
+    public PasswordField getPasswordsign() {
+        return passwordsign;
+    }
+
+    public Button getSentbutton() {
+        return sentbutton;
+    }
+
+    public ListView getServermessage() {
+        return servermessage;
+    }
+
+    public ListView getClientmessage() {
+        return clientmessage;
+    }
+
+    public TextField getTxtClientMessage() {
+        return txtClientMessage;
+    }
+
+    public Button getBtnClientMessage() {
+        return btnClientMessage;
+    }
+
+    public Button getBtngetmessage() {
+        return btngetmessage;
+    }
+
+    public Button getBtnleft() {
+        return btnleft;
+    }
+
+    public String getClientMessage() {
+        return ClientMessage;
+    }
+
+    public Socket getSocket() {
+        return socket;
+    }
+
+    public DataInputStream getInput() {
+        return input;
+    }
+
+    public DataOutputStream getOut() {
+        return out;
+    }
+          
+    //SETTER METHODS
+
+    public void setBtnusername(TextField btnusername) {
+        this.btnusername = btnusername;
+    }
+
+    public void setBtnpassword(PasswordField btnpassword) {
+        this.btnpassword = btnpassword;
+    }
+
+    public void setBtncancel(Button btncancel) {
+        this.btncancel = btncancel;
+    }
+
+    public void setBtnsibmitButton(Button btnsibmitButton) {
+        this.btnsibmitButton = btnsibmitButton;
+    }
+
+    public void setBtncancelsign(Button btncancelsign) {
+        this.btncancelsign = btncancelsign;
+    }
+
+    public void setBtnregister(Button btnregister) {
+        this.btnregister = btnregister;
+    }
+
+    public void setBtnlogin(Button btnlogin) {
+        this.btnlogin = btnlogin;
+    }
+
+    public void setLabelsignup(Label labelsignup) {
+        this.labelsignup = labelsignup;
+    }
+
+
+    public void setBtnno(Button btnno) {
+        this.btnno = btnno;
+    }
+
+    public void setBtnhhhh(Button btnhhhh) {
+        this.btnhhhh = btnhhhh;
+    }
+
+    public void setFirstname(TextField firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(TextField lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setSignemail(TextField signemail) {
+        this.signemail = signemail;
+    }
+
+    public void setUsername(TextField username) {
+        this.username = username;
+    }
+
+    public void setPasswordsign(PasswordField passwordsign) {
+        this.passwordsign = passwordsign;
+    }
+
+    public void setSentbutton(Button sentbutton) {
+        this.sentbutton = sentbutton;
+    }
+
+    public void setServermessage(ListView servermessage) {
+        this.servermessage = servermessage;
+    }
+
+    public void setClientmessage(ListView clientmessage) {
+        this.clientmessage = clientmessage;
+    }
+
+    public void setTxtClientMessage(TextField txtClientMessage) {
+        this.txtClientMessage = txtClientMessage;
+    }
+
+    public void setBtnClientMessage(Button btnClientMessage) {
+        this.btnClientMessage = btnClientMessage;
+    }
+
+    public void setBtngetmessage(Button btngetmessage) {
+        this.btngetmessage = btngetmessage;
+    }
+
+    public void setBtnleft(Button btnleft) {
+        this.btnleft = btnleft;
+    }
+
+    public void setClientMessage(String ClientMessage) {
+        this.ClientMessage = ClientMessage;
+    }
+
+    public void setSocket(Socket socket) {
+        this.socket = socket;
+    }
+
+    public void setInput(DataInputStream input) {
+        this.input = input;
+    }
+
+    public void setOut(DataOutputStream out) {
+        this.out = out;
+    }
+    
+    
+    //CONSTRUCTORS!!
+    //CONSTRUCTORS FOR BUTTONS !!
+    
+    public FXMLDocumentController(Button btncancel, Button btnsibmitButton, Button btncancelsign, Button btnregister, Button btnlogin, Button btnno, Button btnhhhh, Button sentbutton, Button btnClientMessage, Button btngetmessage, Button btnleft, Button btnaccept) {
+        this.btncancel = btncancel;
+        this.btnsibmitButton = btnsibmitButton;
+        this.btncancelsign = btncancelsign;
+        this.btnregister = btnregister;
+        this.btnlogin = btnlogin;
+        this.btnno = btnno;
+        this.btnhhhh = btnhhhh;
+        this.sentbutton = sentbutton;
+        this.btnClientMessage = btnClientMessage;
+        this.btngetmessage = btngetmessage;
+        this.btnleft = btnleft;
+        this.btnaccept = btnaccept;
+    }
+    
+    
+    
+    //CONSTRUCTORS FOR FIELDS!!
+    
+
+    public FXMLDocumentController(TextField btnusername, PasswordField btnpassword, TextField firstname, TextField lastname, TextField signemail, TextField username, PasswordField passwordsign, TextField txtClientMessage) {
+        this.btnusername = btnusername;
+        this.btnpassword = btnpassword;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.signemail = signemail;
+        this.username = username;
+        this.passwordsign = passwordsign;
+        this.txtClientMessage = txtClientMessage;
+    }
+
+    //CONSTRUCTORS FOR OTHERS ( LABELS , LISTVIEW , PANE ETC. )
+
+    public FXMLDocumentController(Label labelsignup, ListView servermessage, ListView clientmessage) {
+        this.labelsignup = labelsignup;
+        this.servermessage = servermessage;
+        this.clientmessage = clientmessage;
+    }
+
+
+    //INITIALIZERS!
+    
+     // initialize socket and input output streams 
+    
+   //DECLARING SOCKET HERE AS NULL , A GLOBAL VARIABLE
+   //SOCKET IS USED TO MAKE A CONNECTION WITH A CLIENT  
+  
+    private Socket socket            = null; 
+    
+    //DATAINPUTSTREAM IS BASICALLY USED FOR READING OVER A NETWROKD FOR FROM A FILE
+    // IT I SBASICALLY A STREAMS ( I/O STREAMS SPECIFICALLY )
+    
+    private DataInputStream  input   = null; 
+    
+    //DATAOUTPUTSTREAM ,JAVA APPLICATION GENERALLY USES THE DATA OUTPUT STREAM TO WRITE DATA THAT CAN LATER BE READ BY A DATA INPUT STREAM.
+  
+    private DataOutputStream out     = null; 
+
+    
+    //OOPCONCEPT OF OVERRIDING IS USED HERE 
+    //IT IS A TYPE OF A POLYMORPHISM!
+    //STARTMETHOD IS OVERRIDDEN
+   
+    @Override
+
+    public void loadStage(String fxml) 
+    
+            //THIS IS BACKBONE METHOD OF OUR PROJECT
+            //THE STAGES AND SCENES ARE CHANGING BECAUSE OF THIS FUNCTION
+            //IT IS A USER MADE FUNCTION
+            //WE ARE USING THIS AT MULTIPLE STAGES IN OUR CODE!!
+    {
+         Parent root = null;
+         
+         //OOP 
+         //ERROR HANDLING IS BEING DONE HERE
+         //TRY-CATCH BLOCK IS USED !!
+         
+         try {
+         
+             //SETTING A STAGE
+             //LOADING OF STAGE BEING DONE RIGHT HERE!
+             
+              root = FXMLLoader.load(getClass().getResource(fxml));
+           }
+          
+         catch(Exception e)
+         {
+             e.printStackTrace();
+         }
+         
+       
+     //STAGE DECLARATION AND ITS SETTING
+     Stage stage = new Stage();
+     //ASSERTING THAT THE ROOT IS NOT NULL
+     //IF THE ROOT IS NULL , THERE WILL BE AN ERROR AND PROGRAM WILL BE HALT
+     assert root != null;
+     //SETTING OF STAGE ALONG WITH SCENE DECLARATION
+     stage.setScene(new Scene ( root ));
+     //RESIZING THE STAGE!
+     stage.resizableProperty().setValue(false);
+     //SHOWING OF A STAGE!
+     stage.show();
+  
+    }
+   
+    //OOPCONCEPT OF OVERRIDING IS USED HERE 
+    //IT IS A TYPE OF A POLYMORPHISM!
+    //STARTMETHOD IS OVERRIDDEN
+   
+     @Override
+     public void textfill()
+    
+             //THIS METHOD IS CALLED WHEN THE LOGIN SCREEN FOR THE CLIENT IS OPENED
+             
+     {
+     
+         //EVENT HANDLING IS USED HERE
+         // LAMBDA EXPRESSION IS USED TO CARRY OUT THE FUNCTION
+   
+     btnlogin.setOnAction( e->{
+        //SETTING OF A NEW WINDOW !
+        //TO SHOW THE ALERT BOXES WHEN ANYONE OF THE FIELD IS REMAINED EMPTY
+        //AND THE USER TRIES TO PROCEED FORWARD!!
+        
+         Window owner = btnlogin.getScene().getWindow();
+
+        //IFELSE CONDITION IS BEING USED HERE!
+        //CHECK THE CONDITION HERE THAT :
+        //IF THE btnusername IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
+        //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
+        //IT IS COMPULSORY TO BE FILLED!
+        
+        if(btnusername.getText().isEmpty()) {
+            loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
+                    "Please enter your Username First to proceed");
+            return;
+        }
+       
+        //IFELSE CONDITION IS BEING USED HERE!
+        //CHECK THE CONDITION HERE THAT :
+        //IF THE btnpassword IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
+        //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
+        //IT IS COMPULSORY TO BE FILLED!
+        
+       
+        if(btnpassword.getText().isEmpty()) {
+            loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
+                    "Please enter your Password First to proceed");
+            return;
+        }
+       
+        //the method loadStage() is called here and
+        //the getStarted.fxml file is passed as argument here
+        //loading the stage here!
+        
+        loadStage("getStarted.fxml");
+        Stage stage = ( Stage ) btnlogin.getScene().getWindow();
+       
+     
+     });
+          
+    }
+    
+    //OOPCONCEPT OF OVERRIDING IS USED HERE 
+    //IT IS A TYPE OF A POLYMORPHISM!
+    //STARTMETHOD IS OVERRIDDEN
+    
+    @Override
+    public void quit()
+    
+    //THIS METHOD WILL BE CALLED ANYTIME THE CLIENT / USER CLICKED THE CANCEL BUTTON 
+            
+    {
+        
+         //EVENT HANDLING IS USED HERE
+         // LAMBDA EXPRESSION IS USED TO CARRY OUT THE FUNCTION
+   
+            btncancel.setOnAction(e->{
+            
+       
+        //the method loadStage() is called here and
+        //the quitScreen.fxml file is passed as argument here
+        //loading the stage here!
+                
+                loadStage("quitScreen.fxml");
+                Stage stage = ( Stage ) btnlogin.getScene().getWindow();
+                
+            
+            });
+
+        
+    }
+   
+    
+    //OOPCONCEPT OF OVERRIDING IS USED HERE 
+    //IT IS A TYPE OF A POLYMORPHISM!
+    //STARTMETHOD IS OVERRIDDEN
+   
+    @Override
+    
+    //THIS IS THE METHOD THAT BASICALLY STARTS THE CONNECTION OF CLIENT AND ACCEPT THE NETWORK INVITATION FROM THE SERVERSOCKET!
+    //THIS WILL BE CALLED WHEN YOU CLICK THE BUTTON ON THE GETSTARTED SCREEN!
+    
+    public void movetoconnect()
+    {
+    
+         //EVENT HANDLING IS USED HERE
+         // LAMBDA EXPRESSION IS USED TO CARRY OUT THE FUNCTION
+   
+        btnhhhh.setOnAction(e->{
+        
+            try
+            {
+                
+                //SOCKET HAS MADE HER 
+                //REMEMBER IT REQUIRES TWO THINGS AS A PARAMETER 
+                //ONE IS THE LOCALHOSTADDRESS OR THE IP ADDRESS
+                //AND THE OTHER ONE IS THE PORT NUMBER , BUT ONE SHOULD REMEMBER THAT 
+                //PORT NUMBER FOR THE CLIENT AND SERVER IS SAME HERE!
+                
+                socket = new Socket( "127.0.0.1", 5000);
+                
+                //AFTER THE SOCKET HAS SUCCESSFULLY MADE , THE MESSAGE BELOW IN THE "" WILL BE DISPLAYED ON THE CONSOLE SCREEN OF CLIENT 
+                
+                System.out.println("**** Connection  Mainatained Succesfully   **** ");
+                
+                //HERE IT TAKES INPUT FROM THE TERMINAL , SYSTEM.IN IS GIVEN TO IT AS A PARAMETER
+                //WHAT IT BASICALLY MEANS THAT WHATEVER IS TYPPED FROM THE KEYBOARD IS STORED IN THIS
+               
+                input  = new DataInputStream(System.in);
+                
+                //DATAOUTPUTSTREAM!!
+                // sends output to the socket
+                out    = new DataOutputStream(socket.getOutputStream());
+                
+                
+            }
+            catch(UnknownHostException u)
+            {
+                
+                //ERROR HANLING IS BEING DONE HERE
+                //THE LINE 660 WILL PRINT THE ERROR STACK TRACE IF THERE OCCURS AN EXCEPTION!
+                
+                u.printStackTrace();
+                System.out.println(u);
+            }
+            
+            //ALSO DO REMEMBER , FOR ONE TRY BLOCK THERE CAN BE AS MANY AS CATCH BLOCKS
+            catch(IOException i)
+            {
+                System.out.println(i);
+            }
+            
+            //THE STRING VARIABLE LINE IS FOR CLIENT
+            
+            String line = "";
+            
+            //THE STRING VARIABLE receiveMessage IS TO RECIEVE THE SERVER MESSAGES!
+            
+            String receiveMessage="";
+            
+            //ERROR HANDLING ONCE AGAIN
+            //HANDLE USING TRY CATCH BLOCK
+            //EXCEPTION MIGHT OCCUR HERE BECAUSE STREAMS ARE BEING USED HERE!
+            //I/O STREAMS ETC CAN THROW EXCEPTIONS
+            try {
+                
+                //WHAT BASICALLY A INPUTSTREAM DOES IS THAT IT READS , IT READS THE OUTPUT & THEN RETURN IT
+                InputStream istream = socket.getInputStream();
+                
+                //BUFFERED READER IS USED FOR EFFICENT WORK
+                BufferedReader receiveRead = new BufferedReader(new InputStreamReader(istream));
+                
+                //AS SOON AS THE CLIENT ACCEPT THE NETWORK CONNECTION FROM THE SERVER 
+                //THIS JOPTION PANE WILL SHOWN , ASKING FOR THE CLIENTS NAME 
+                //THIS NAME IS USED THROUGHOUT THE CODE UNTILE ONE QUIT , LEAVE OR BLOCKED BY THE SERVER*
+                
+                String firstNumber = JOptionPane.showInputDialog( " Enter Your Name Here ! \n (Dear Client ) " );
+                
+ //WHILE LOOP IS USED HERE
+ //IT FOLLOWS THE CONDITION UNTIL THE CLIENT DON'T ENTER Over
+                  while (!line.equals("Over"))
+{
+    
+    //ERROR HANDLING
+    //USING TRY-CATCH BLOCK!
+    
+    try
+    {
+    
+        //IT WILL PRINT THE NAME ALONG WITH THE MESSAGE THAT THE CLIET HAS TYPED
+        //THE NAME WILL BE THE SAME AS THE USER HAS TYPED IT IN ABOVE JOPTIONINPUT PANE
+        System.out.printf(firstNumber +" says : "  );
+        
+        //WHAT BASICALLY THIS LINE DOES IS THAT IT WILLL STORE THE 
+        //INPUT ENTERED BY THE CLIENT UNTIL ITS A NEW LINE OR THE USER  PRESS THE ENTER KEY
+         
+        line = input.readLine();
+        
+        //THIS LINE WILL NOW , PRINT THE MESSAGE OF THE CLIENT
+        //AND DISPLAY THIS ON THE LISTMENU OF GUI*
+        
+        out.writeUTF(line);
+        
+        //IF CONDITION BEING USED HERE!
+        if(line.equalsIgnoreCase("over"))
+            //IF TRUE
+            
+        {
+            //THE METHOD IS CALLED FROM THE ABSTRACT CLASS BEING EXTENDED!
+           JOptionPane.showMessageDialog(null, "Client has left the Network! \n Your message won't send at the other end by now ! \n Leave by clicking button or Writting Over!");
+
+            instruction();
+            
+            //AFTER CALLING ABOVE METHOD IT WILL BREAK AND COME OUT OF THE  LOOP!
+
+            System.exit(0);
+            
+        }
+
+     //ANOTHER IF LOOP IS BEING USED HERE!
+     //IF THE MESSAGE RECIEVED FROM THE SERVER SIDE IS EMPTY IT WILL IGNORE AND IT ITSN'T EMPTY THIS LOOP WILL EXECUTE
+     
+     if((receiveMessage = receiveRead.readLine()) != null) //receive from server
+        {
+            System.out.print(" Host said :");
+     
+            //DISPLAY THE SERVER/HOST MESSAGE 
+            
+            System.out.println(receiveMessage); // displaying at DOS prompt As well as on GUI ( List Menu)
+        }
+    }
+    
+    catch(IOException i)
+    {
+        //ERROR BEING HANDLED!
+        //PRINT THE TRACE WHERE THE EXCEPTION HAS OCCURED!
+        
+        i.printStackTrace();
+        System.out.println(i);
+    }
+    
+    
+}
+}
+
+          //TWO EXCEPTIONS ARE USED IN THE SAME CATCH BLOCK
+            catch (HeadlessException | IOException m)
+            {
+                
+            }
+            
+            //ERROR HANDLING
+            //USING TRY-CATCH BLOCK
+            
+            try {
+            
+                //AS WE HAVE USED THE STREAMS TO RECIEVE AND SENT OUR MESSAGES OVER NETWORK BETWEEN TWO DIFFERENT PACKAGES
+                //IT IS A GOOD PRACTICE TO CLOSE THE STREAMS AFTER USING THEM
+                
+                input.close();
+                out.close();
+                
+                //CLOSING THE SOCKET!
+                //NO MORE CONDITION WILL BEPURSUED FROM THE CLIENT SIDE ONCE IT IS CLOSED!
+                
+                socket.close();
+            } catch(IOException q)
+            {
+                
+        //ERROR BEING HANDLED!
+        //PRINT THE TRACE WHERE THE EXCEPTION HAS OCCURED!
+        
+                q.printStackTrace();
+            }
+        
+            //THE LOADTAGE METHOD IS CALLED AND PASSING THE RESPECTIVE FXML FILE AS A PARAMETER
+            
+            loadStage("quitScreen.fxml");
+            
+            Stage stage = ( Stage ) btnlogin.getScene().getWindow();
+       
+        //THE SETONACTION FOR THE BUTTON CLOSES HERE!
+        });
+        
+    }
+    
+    public void endScene()
+    
+    {
+         //EVENT HANDLING IS USED HERE
+         // LAMBDA EXPRESSION IS USED TO CARRY OUT THE FUNCTION
+        //THE FEEDBACK FORM WILL APPEAR AFTER THIS ACTION IS PERFORMED
+        
+    btnsibmitButton.setOnAction(e->{
+        loadStage("feedback.fxml");
+        Stage stage = ( Stage ) btnlogin.getScene().getWindow();
+    });
+        
+        
+    }
+    
+  
+    //OOPCONCEPT OF OVERRIDING IS USED HERE 
+    //IT IS A TYPE OF A POLYMORPHISM!
+    //STARTMETHOD IS OVERRIDDEN
+   
+    @Override
+    public void starter()
+    {
+         //EVENT HANDLING IS USED HERE
+         // LAMBDA EXPRESSION IS USED TO CARRY OUT THE FUNCTION
+
+        btnregister.setOnAction( e->{
+              
+             Window owner = btnlogin.getScene().getWindow();
+
+        //IFELSE CONDITION IS BEING USED HERE!
+        //CHECK THE CONDITION HERE THAT :
+        //IF THE firstname IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
+        //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
+        //IT IS COMPULSORY TO BE FILLED!
+        
+       
+        if(firstname.getText().isEmpty()) {
+            loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
+                    "Please enter your First Name to proceed");
+            return;
+        }
+     
+        //IFELSE CONDITION IS BEING USED HERE!
+        //CHECK THE CONDITION HERE THAT :
+        //IF THE lastname IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
+        //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
+        //IT IS COMPULSORY TO BE FILLED!
+        
+       
+        if(lastname.getText().isEmpty()) {
+            loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
+                    "Please enter your Last Name First to proceed");
+            return;
+        }
+       
+        //IFELSE CONDITION IS BEING USED HERE!
+        //CHECK THE CONDITION HERE THAT :
+        //IF THE signemail IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
+        //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
+        //IT IS COMPULSORY TO BE FILLED!
+        
+       
+          if(signemail.getText().isEmpty()) {
+      
+              loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
+                    "Please enter your Email First to proceed");
+            return;
+        }
+     
+        //IFELSE CONDITION IS BEING USED HERE!
+        //CHECK THE CONDITION HERE THAT :
+        //IF THE username IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
+        //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
+        //IT IS COMPULSORY TO BE FILLED!
+        
+       
+          if(username.getText().isEmpty()) {
+            loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
+                    "Please enter your Username First to proceed");
+            return;
+        }
+      
+        //IFELSE CONDITION IS BEING USED HERE!
+        //CHECK THE CONDITION HERE THAT :
+        //IF THE passwordsign IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
+        //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
+        //IT IS COMPULSORY TO BE FILLED!
+        
+       
+          
+          if(passwordsign.getText().isEmpty()) {
+            loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
+                    "Please enter your Password First to proceed");
+            return;
+        }
+       
+          //loading the stage
+          //calling the loadStage method 
+         loadStage("getStarted.fxml");
+         Stage stage = ( Stage ) btnlogin.getScene().getWindow();
+       
+     
+     });
+          
+        
+        
+        
+    }
+    
+//this method will be called when the user clicks the cancel button
+//the next thing it will happen is that the quit screen will be opened
+    
+    public void quitpt2()
+    {
+     
+        
+         //EVENT HANDLING IS USED HERE
+         // LAMBDA EXPRESSION IS USED TO CARRY OUT THE FUNCTION
+
+     btncancelsign.setOnAction(e->{
+            
+                
+         loadStage("quitScreen.fxml");
+         Stage stage = ( Stage ) btnlogin.getScene().getWindow();
+                
+            
+            });     
+        
+    }
+   
+    
+    //OOPCONCEPT OF OVERRIDING IS USED HERE 
+    //IT IS A TYPE OF A POLYMORPHISM!
+    //STARTMETHOD IS OVERRIDDEN
+   
+    @Override
+    public void backtoLog()
+    
+    {
+    
+        
+         //EVENT HANDLING IS USED HERE
+         // LAMBDA EXPRESSION IS USED TO CARRY OUT THE FUNCTION
+
+            btnno.setOnAction(e->{
+            
+       //THE METHOD loadStage is called here
+       //the corresponding fxml file is passed as a parameter
+                loadStage("FXMLDocument.fxml");
+                Stage stage = ( Stage ) btnlogin.getScene().getWindow();
+                
+            
+            });
+
+        
+        
+    }
+    
+    public void quitandleave ()
+    {
+       
+
+        
+         //EVENT HANDLING IS USED HERE
+         // LAMBDA EXPRESSION IS USED TO CARRY OUT THE FUNCTION
+         //HERE THE ACTION IS CARRIED ON A BUTTON
+        
+            btnaccept.setOnAction(e->{
+          
+         //CALLS THIS METHOD FROM THE ABSTRACT CLASS BEING INHERITED!
+         //CALLING THIS METHOD FOR THE SECOND TIME IN THIS CODE*
+         
+            instruction();
+          
+            //AFTER THE ABOVE METHOD IS CALLED
+            //THE SYSTEM.EXIT WILL EXECECUTE AND THE PROJECT IS CLOSED SUCCESSFULLY!
+            
+            System.exit(0);
+            
+            
+        });
+        
+        
+    }
+   
+    
+    public void  loadsignup()
+    
+    {
+
+        
+         //EVENT HANDLING IS USED HERE
+         // LAMBDA EXPRESSION IS USED TO CARRY OUT THE FUNCTION
+         //HERE THE ACTION IS CARRIED ON A LABEL !
+        
+        labelsignup.setOnMouseClicked(e->{
+      
+            
+            //METHOD LoadStag is called and fxml document is passed as a parameter
+          loadStage("SignupScreen.fxml");
+          Stage stage = ( Stage ) btnlogin.getScene().getWindow();
+              
+      
+      
+      
+      } );
+        
+        
+    }
+    
+    //OOPCONCEPT OF OVERRIDING IS USED HERE 
+    //IT IS A TYPE OF A POLYMORPHISM!
+    //STARTMETHOD IS OVERRIDDEN
+   
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }    
+
+   
+}
+
+//****************************************************************************************
+//THATS THE EMD OF OUR PROJECT 
+//****************************************************************************************
