@@ -1,0 +1,31 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package chatbotcodeforclient;
+
+/**
+ *
+ * @author Zainab Ghauri
+ */
+]
+//AN OOP CONCEPT IS BEING USED HERE THAT IS INTERFACES!
+//IT IS ONE OF THE MAJOR OOP CONCEPT
+//USED FOR THE DATA ENCAPSULATION!
+//BY THIS WE CAN ACHEIVE 100% DATA HIDING!
+
+
+//AN INTERFACE # 4 
+//INTERFACE IS BASICALLY USED FOR 100% DATA PROTECTION
+//THE METHOD INSIDE INTERFACE IS ABSTARCT BY DEFALULT
+
+interface quitScreen {
+   
+    //THIS METHOD IS AGIAN ABSTRACT BY DEFAULT 
+    //THIS WILL APPEAR WHEN USER CLICKS THE CANCEL BUTTON AND THE QUIT STAGE WILL APPEAR 
+    //AND IF THE USER CLICKS THE NO BUTTON THERE THIS BACK TO LOG WILL APPEAR!
+    
+    void backtoLog();
+    
+}
