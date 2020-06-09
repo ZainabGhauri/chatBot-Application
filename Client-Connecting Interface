@@ -1,0 +1,45 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package chatbotcodeforclient;
+
+/**
+ *
+ * @author Zainab Ghauri
+ */
+
+//AN OOP CONCEPT IS BEING USED HERE THAT IS ABSTRACTION!
+//IT IS ONE OF THE MAJOR OOP CONCEPT
+//USED FOR THE DATA ENCAPSULATION!
+
+//AN ABSTRACT CLASS IS CREATED HERE
+//ABSTRACTIO IS ALSO USED FOR DATA ENCAPSULATION BUT THIS IS NOT MUCH EFFICENT AS INTERFACES
+//METHODS INSIDE THIS CAN OR CAN'T BE ABSTRACT
+
+abstract class Connection {
+    
+    //THE METHODS IN AN ABSTRACT CLASS CAN BE ABSTRACT AND CAN BE NOT
+    //HERE IS AN EXAMPLE
+    //THERE ARE 2 METHODS IN THIS ABSTRACT CLASS
+    //1. ABSTRACT VOID MOVETOCONNECT
+    //2.INSTRUCTION
+    //ONE METHOD IS ABSTRACT AND OTHER ONE IS NOT!
+    
+    abstract void movetoconnect();    
+ //THIS METHOD IS OVERRIDDEN IN THE MAIN CODE!
+    
+    public void instruction() {
+ //THIS CODE WILL APPEAR WHEN THE CONNECTION IS DISABLED!
+ //THIS METHOD IS USED IN OUR CODE TWO TIMES
+    
+            System.out.println("*************************************************");
+            System.out.println("              ** LEAVING SUCCESSFULLY **           ");
+            System.out.println("              ** CONNECTION CLOSED **             ");
+            System.out.println("*************************************************");
+            
+}
+
+}
+
