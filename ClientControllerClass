@@ -736,80 +736,84 @@ public class FXMLDocumentController extends Connection implements Initializable 
          //EVENT HANDLING IS USED HERE
          // LAMBDA EXPRESSION IS USED TO CARRY OUT THE FUNCTION
 
-        btnregister.setOnAction( e->{
+        btnregister.setOnAction( a->{
               
-             Window owner = btnlogin.getScene().getWindow();
-
+           
         //IFELSE CONDITION IS BEING USED HERE!
         //CHECK THE CONDITION HERE THAT :
         //IF THE firstname IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
         //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
         //IT IS COMPULSORY TO BE FILLED!
         
-       
-        if(firstname.getText().isEmpty()) {
-            loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
-                    "Please enter your First Name to proceed");
-            return;
-        }
-     
-        //IFELSE CONDITION IS BEING USED HERE!
-        //CHECK THE CONDITION HERE THAT :
-        //IF THE lastname IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
-        //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
-        //IT IS COMPULSORY TO BE FILLED!
-        
-       
-        if(lastname.getText().isEmpty()) {
-            loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
-                    "Please enter your Last Name First to proceed");
-            return;
-        }
-       
-        //IFELSE CONDITION IS BEING USED HERE!
-        //CHECK THE CONDITION HERE THAT :
-        //IF THE signemail IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
-        //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
-        //IT IS COMPULSORY TO BE FILLED!
-        
-       
-          if(signemail.getText().isEmpty()) {
-      
-              loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
-                    "Please enter your Email First to proceed");
-            return;
-        }
-     
-        //IFELSE CONDITION IS BEING USED HERE!
-        //CHECK THE CONDITION HERE THAT :
-        //IF THE username IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
-        //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
-        //IT IS COMPULSORY TO BE FILLED!
-        
-       
-          if(username.getText().isEmpty()) {
-            loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
-                    "Please enter your Username First to proceed");
-            return;
-        }
-      
-        //IFELSE CONDITION IS BEING USED HERE!
-        //CHECK THE CONDITION HERE THAT :
-        //IF THE passwordsign IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
-        //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
-        //IT IS COMPULSORY TO BE FILLED!
-        
-       
-          
-          if(passwordsign.getText().isEmpty()) {
-            loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
-                    "Please enter your Password First to proceed");
-            return;
-        }
-       
+//         Window owner = btnlogin.getScene().getWindow();
+//
+//        if(firstname.getText().isEmpty()) {
+//            loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
+//                    "Please enter your First Name to proceed");
+//            return;
+//        }
+//     
+//        //IFELSE CONDITION IS BEING USED HERE!
+//        //CHECK THE CONDITION HERE THAT :
+//        //IF THE lastname IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
+//        //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
+//        //IT IS COMPULSORY TO BE FILLED!
+//        
+//       
+//        if(lastname.getText().isEmpty()) {
+//            loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
+//                    "Please enter your Last Name First to proceed");
+//            return;
+//        }
+//       
+//        //IFELSE CONDITION IS BEING USED HERE!
+//        //CHECK THE CONDITION HERE THAT :
+//        //IF THE signemail IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
+//        //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
+//        //IT IS COMPULSORY TO BE FILLED!
+//        
+//       
+//          if(signemail.getText().isEmpty()) {
+//      
+//              loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
+//                    "Please enter your Email First to proceed");
+//            return;
+//        }
+//     
+//        //IFELSE CONDITION IS BEING USED HERE!
+//        //CHECK THE CONDITION HERE THAT :
+//        //IF THE username IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
+//        //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
+//        //IT IS COMPULSORY TO BE FILLED!
+//        
+//       
+//          if(username.getText().isEmpty()) {
+//            loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
+//                    "Please enter your Username First to proceed");
+//            return;
+//        }
+//      
+//        //IFELSE CONDITION IS BEING USED HERE!
+//        //CHECK THE CONDITION HERE THAT :
+//        //IF THE passwordsign IS REMAINED EMPTY AFTER THE USER CLICKED LOGIN BUTTON
+//        //AN ALERT BOX WHOSE CODE IS IN loginCc CLASS IS POPPEDUP AND IT DON'T LET THE USER TO PROCEED FURTHER
+//        //IT IS COMPULSORY TO BE FILLED!
+//        
+//       
+//          
+//          if(passwordsign.getText().isEmpty()) {
+//            loginCc.showAlert(Alert.AlertType.ERROR, owner, "Form Error!", 
+//                    "Please enter your Password First to proceed");
+//            return;
+//        }
+//
+
+           JOptionPane.showMessageDialog(null, "So you have registered , Now Login to proceed !");
+
+
           //loading the stage
           //calling the loadStage method 
-         loadStage("getStarted.fxml");
+         loadStage("FXMLDocument.fxml");
          Stage stage = ( Stage ) btnlogin.getScene().getWindow();
        
      
