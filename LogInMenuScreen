@@ -1,0 +1,28 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package chatbot;
+
+/**
+ *
+ * @author Zainab Ghauri
+ */
+
+
+//AN ABSTRACT CLASS IS CREATED HERE
+//ABSTRACTIO IS ALSO USED FOR DATA ENCAPSULATION BUT THIS IS NOT MUCH EFFICENT AS INTERFACES
+//METHODS INSIDE THIS CAN OR CAN'T BE ABSTRACT
+
+public abstract class LogInMenuScreen {
+    
+
+    //ABSTRACT METHODS
+    //THIS WILL RUN WHEN LOGIN SCREEN IS OPENED
+    abstract void hintbox();
+    abstract void textfill();
+    abstract void Details();
+    abstract void quit();    
+    
+}
