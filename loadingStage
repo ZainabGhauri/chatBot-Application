@@ -1,0 +1,20 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package chatbot;
+
+/**
+ *
+ * @author Zainab Ghauri
+ */
+//AN INTERFACE # 1 
+//INTERFACE IS BASICALLY USED FOR 100% DATA PROTECTION
+//THE METHOD INSIDE INTERFACE IS ABSTARCT BY DEFALULT
+
+public interface loadingStage {
+    //METHOD IS CREATED THAT TAKE FXML FILE AS A PARAMETER    
+     public void loadStage(String fxml);
+    
+}
