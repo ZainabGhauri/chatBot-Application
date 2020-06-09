@@ -1,0 +1,21 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package chatbot;
+
+/**
+ *
+ * @author Zainab Ghauri
+ */
+public interface start {
+    
+//AN INTERFACE # 2
+//INTERFACE IS BASICALLY USED FOR 100% DATA PROTECTION
+//THE METHOD INSIDE INTERFACE IS ABSTARCT BY DEFALULT
+
+      //START METHOD IS CREATED IN start INTERFACE
+     void Start(); 
+    
+}
